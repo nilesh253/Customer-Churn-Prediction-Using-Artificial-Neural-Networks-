@@ -1,0 +1,32 @@
+This code is explained in 3 main parts:
+
+Data Preprocessing (Part 1):
+
+Imports libraries like pandas, NumPy, and scikit-learn for data manipulation and machine learning.
+Reads the "Churn_Modelling.csv" dataset containing customer information and their churn status (whether they left the service).
+Selects relevant features (columns 3 to 12) and the target variable (churn status in column 13).
+Creates dummy variables for categorical features ("Geography" and "Gender") to improve model performance.
+Drops the original categorical columns ("Geography" and "Gender") to avoid redundancy.
+Splits the data into training and testing sets (80% for training, 20% for testing).
+Applies standard scaling to normalize the features in the training and testing sets, ensuring all features have a similar range.
+Building the Artificial Neural Network (Part 2):
+
+Initializes a sequential model, a common architecture for ANNs.
+Defines the layers of the network:
+An input layer with 11 neurons (matching the number of features).
+Two hidden layers with 6 neurons each, using rectified linear unit (ReLU) activation for non-linearity.
+An output layer with 1 neuron, using sigmoid activation to predict the probability of churn (0 or 1).
+Configures the model with:
+Optimizer: "Adamax" for efficient gradient descent during training.
+Loss function: "binary_crossentropy" suitable for binary classification problems.
+Metrics: "accuracy" to measure the model's performance in predicting churn correctly.
+Trains the model on the training data for 100 epochs (iterations), fitting the model to recognize churn patterns.
+Evaluating the Model (Part 3):
+
+Predicts churn probabilities on the testing data using the trained model.
+Applies a threshold (0.5) to convert predicted probabilities into churn classifications (0 for not churning, 1 for churning).
+Evaluates the model's performance using a confusion matrix, visualizing the number of correct and incorrect predictions.
+Calculates the accuracy score, a metric indicating the overall percentage of correct predictions.
+Plots the training and validation accuracy/loss curves to visualize the model's learning process and potential for overfitting.
+This code demonstrates the development and evaluation of an ANN model for predicting customer churn in a banking context.
+And in last we also checked for best hyperparameter value( Number of hidden layer and Neurons) using Keras Tuner.
